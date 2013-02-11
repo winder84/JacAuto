@@ -10,6 +10,11 @@ body {
 	background-color: #ccc;
 }
 
+.container {
+	background: url("../images/main_bg.png") no-repeat;
+	margin: 0 auto;
+}
+
 .menu_logo {
 	background: url("../images/menu_logo_TK.png") no-repeat transparent;
 	width: 49px;
@@ -86,4 +91,22 @@ body {
 	height: 60px;
 	width: 5px;
 	vertical-align: top;
+}
+
+
+.center {
+	background: url("../images/main_center_bg.png") no-repeat;
+	min-height: 200px;
+	margin: 310px 0 0 0;
+}
+
+.footer {
+	background: url("../images/foot_bg.png") no-repeat;
+	height: 300px;
+	margin: 0px 0 0 0;
+}
+
+.footer_up {
+	background: url("../images/footer_up.png") no-repeat;
+	height: 50px;
 }
