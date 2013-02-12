@@ -96,8 +96,9 @@ body {
 
 .center {
 	background: url("../images/main_center_bg.png") no-repeat;
-	min-height: 200px;
-	margin: 310px 0 0 0;
+	margin: 330px 0 0 0;
+	padding: 30px 0 0 0;
+	overflow: hidden;
 }
 
 .footer {
@@ -109,4 +110,75 @@ body {
 .footer_up {
 	background: url("../images/footer_up.png") no-repeat;
 	height: 50px;
+}
+
+.table {
+	margin-bottom: 0;
+}
+
+.left_menu {
+	float: left;
+	width: 290px;
+	height: 150px;
+	margin-bottom: 50px;
+	color: #fff;
+	text-align: right;
+}
+
+.left_menu ul {
+	list-style: none;
+}
+
+.left_menu ul li {
+	line-height: 14px;
+}
+.left_menu ul li a {
+	color: #ccc;
+	font-size: 12px;
+}
+
+.main_left_menu_text {
+	text-align: justify;
+	width: 240px;
+	height: 170px;
+	float: left;
+	margin: -10px 0 0 33px;
+	color: #fff;
+	font-size: 10px;
+	line-height: 12px;
+
+}
+
+.hit_prod {
+	width: 319px;
+	height: 165px;
+	float: left;
+	background: url("../images/hit_prod_podl.png");
+	margin: 10px 0 0 0;
+}
+
+.arrow_hit {
+	width: 18px;
+	height: 103px;
+	float: left;
+	margin: 10px 0 0 0;
+	padding-top: 60px;
+}
+
+.arrow_hit:hover {
+	background-color: #c4e3f3;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px #ccc;
+}
+
+.left_arr {
+	margin-left: 35px;
+}
+
+.comp_logos {
+	width: 174px;
+	height: 317px;
+	float: left;
+	background: url("../images/comp_logos.png") no-repeat;
+	margin: 50px 0 0 30px;
 }
