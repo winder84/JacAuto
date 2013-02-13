@@ -41,8 +41,16 @@ $this->headTitle($title);
 	<?php
 	foreach ($hitauto as $key => $ha) {
 		if($key == 0) {
+			echo '<div id="'. $key .'" class="hit_prod_text">';
+			echo '<a>Хит продаж</a>';
+			echo '<a>' . $ha->title .'</a>';
+			echo '</div>';
 			echo '<img id="'. $key .'" src="/images/' . $ha->image . '">';
 		} else {
+			echo '<div id="'. $key .'" class="hit_prod_text" style="opacity:0;">';
+			echo '<a>Хит продаж</a>';
+			echo '<a>' . $ha->title .'</a>';
+			echo '</div>';
 			echo '<img id="'. $key .'" src="/images/' . $ha->image . '" style="opacity:0;">';
 		}
 	}

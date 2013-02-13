@@ -164,6 +164,24 @@ body {
 	margin: 4px 0 0 13px;
 }
 
+.hit_prod_text {
+	font-size: 10px;
+	line-height: 12px;
+	width: 140px;
+	height: 35px;
+	background: url("../images/hit_text_podl.png");
+	z-index: 10;
+	position: absolute;
+	margin: 110px 0 0 168px;
+	text-align: right;
+}
+
+.hit_prod_text a {
+	display: block;
+	color: #fff;
+	margin: 5px 5px 0 0;
+}
+
 .arrow_hit {
 	width: 18px;
 	height: 103px;
@@ -323,6 +341,7 @@ body {
 	margin-left: 330px;
 	font-size: 12px;
 	line-height: 14px;
+	margin-bottom: 30px;
 }
 
 .main_text_left ul li {
@@ -338,6 +357,7 @@ body {
 	width: 300px;
 	float: left;
 	margin-left: 20px;
+	margin-bottom: 30px;
 }
 
 .main_map_left {
