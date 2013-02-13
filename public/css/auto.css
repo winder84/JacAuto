@@ -104,7 +104,7 @@ body {
 .footer {
 	background: url("../images/foot_bg.png") no-repeat;
 	height: 300px;
-	margin: 0px 0 0 0;
+	margin: -10px 0 0 0;
 }
 
 .footer_up {
@@ -314,11 +314,119 @@ body {
 	width: 300px;
 	float: left;
 	margin-left: 330px;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.main_text_left ul li {
+	font-size: 12px;
+	line-height: 12px;
+	font-style: italic;
 }
 
 .main_text_right {
+	font-size: 12px;
+	line-height: 14px;
 	text-align: justify;
 	width: 300px;
 	float: left;
 	margin-left: 20px;
+}
+
+.main_map_left {
+	float: left;
+	width: 335px;
+	height: 230px;
+	background: url("../images/main_map_left.png") no-repeat;
+	margin-left: -2px;
+}
+
+.phone {
+	width: 129px;
+	height: 129px;
+	float: left;
+	background: url("../images/phone.png") no-repeat;
+	margin: 10px 0 0 -70px;
+}
+
+.call {
+	float: left;
+}
+
+.afterphone h1 {
+	width: 120px;
+	height: 50px;
+	display: inline-block;
+	font-size: 14px;
+	color: #4571ae;
+	line-height: 14px;
+	margin: 20px 0 0 40px;
+}
+
+.afterphone h2 {
+	width: 170px;
+	height: 50px;
+	display: block;
+	font-size: 12px;
+	color: #4571ae;
+	line-height: 14px;
+	margin: 0 0 0 40px;
+}
+
+.afterphone {
+	margin: 20px 0 0 -40px;
+	float: left;
+	width: 800px;
+}
+
+.afterphone li {
+	display: inline-block;
+	float: left;
+	width: 190px;
+	font-size: 10px;
+	line-height: 12px;
+	text-align: justify;
+	margin: 0 0 0 10px;
+}
+
+.slogan p {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;
+	color: #4571ae;
+	line-height: 20px;
+	margin: -20px 0 0 0;
+}
+
+.slogan a {
+	font-size: 9px;
+	color: #000;
+}
+
+.slogan a:hover {
+	text-decoration: none;
+}
+
+.slogan span {
+	color: #4571ae;
+}
+
+.perc15 {
+	width: 134px;
+	height: 139px;
+	background: url("../images/perc15.png");
+	margin: -30px 0 0 70px;
+}
+
+.plodotv {
+	font-size: 10px;
+	line-height: 12px;
+	float: left;
+	margin: -40px 0 0 680px;
+}
+
+.plodotv span {
+	font-style: italic;
+	color: #4571ae;
 }
