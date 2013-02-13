@@ -48,10 +48,10 @@ function interval () {
 $(document).ready(function() {
 	setInterval(interval, 5000);
 
-	if(window.location.href == 'http://jacauto.localhost/'){
+	if(window.location.href == ('http://' + document.domain + '/')){
 		$('.menu_block a[href="/"]').attr({class:'current'});
 	};
-	if(window.location.href == 'http://jacauto.localhost/catalog'){
+	if(window.location.href.indexOf('catalog') !== -1){
 		$('.menu_block a[href="/catalog"]').attr({class:'current'});
 	};
 });
