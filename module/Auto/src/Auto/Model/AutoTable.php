@@ -63,6 +63,18 @@ class AutoTable
 		}
 	}
 
+	public function getHitAuto() {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$select = $sql->select();
+		$select->from('product');
+		$select->where(array('is_on_main' => '1'));
+
+		$selectString = $sql->getSqlStringForSqlObject($select);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
 	public function deleteAuto($id)
 	{
 		$this->tableGateway->delete(array('id' => $id));

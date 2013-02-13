@@ -18,7 +18,7 @@ class AutoController extends AbstractActionController
 	public function indexAction()
 	{
 		return new ViewModel(array(
-			'auto' => $this->getAutoTable()->fetchAll(),
+			'hitauto' => $this->getAutoTable()->getHitAuto(),
 		));
 	}
 

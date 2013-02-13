@@ -34,12 +34,22 @@ $this->headTitle($title);
 </div>
 
 <!---------------------------------Хит продаж----------------------------->
-<div class="arrow_hit left_arr">
+<div class="arrow_hit left_arr" onclick="hit_left();">
 	<img src="/images/arrow_left.png" />
 </div>
 <div class="hit_prod">
+	<?php
+	foreach ($hitauto as $key => $ha) {
+		if($key == 0) {
+			echo '<img id="'. $key .'" src="/images/' . $ha->image . '">';
+		} else {
+			echo '<img id="'. $key .'" src="/images/' . $ha->image . '" style="opacity:0;">';
+		}
+	}
+	?>
+
 </div>
-<div class="arrow_hit right_arr">
+<div class="arrow_hit right_arr" onclick="hit_right();">
 	<img src="/images/arrow_right.png" />
 </div>
 <!---------------------------------/Хит продаж----------------------------->
