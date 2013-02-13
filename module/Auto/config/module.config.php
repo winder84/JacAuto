@@ -38,6 +38,20 @@ return array(
 					),
 				),
 			),
+			'catalog' => array(
+				'type' => 'Zend\Mvc\Router\Http\Literal',
+				'options' => array(
+					'route'    => '/catalog[/:list][/:id]',
+					'constraints' => array(
+						'list' => '[a-zA-Z][a-zA-Z0-9_-]*',
+						'id'     => '[0-9]+',
+					),
+					'defaults' => array(
+						'controller' => 'Auto\Controller\Auto', // <-- change here
+						'action'     => 'catalog',
+					),
+				),
+			),
 		),
 	),
 	'view_manager' => array(

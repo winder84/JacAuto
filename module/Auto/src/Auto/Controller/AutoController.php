@@ -34,6 +34,10 @@ class AutoController extends AbstractActionController
 	{
 	}
 
+	public function catalogAction()
+	{
+	}
+
 	public function getAutoTable()
 	{
 		if (!$this->autoTable) {
