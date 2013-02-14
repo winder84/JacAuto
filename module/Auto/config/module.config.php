@@ -17,14 +17,14 @@ return array(
 			'auto' => array(
 				'type'	=> 'segment',
 				'options' => array(
-					'route'	=> '[/:action][/:id]',
+					'route'	=> '/catalog[/:action][/:id]',
 					'constraints' => array(
 						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
 						'id'	 => '[0-9]+',
 					),
 					'defaults' => array(
 						'controller' => 'Auto\Controller\Auto',
-						'action'	 => 'index',
+						'action'	 => 'catalog',
 					),
 				),
 			),
@@ -41,7 +41,7 @@ return array(
 			'catalog' => array(
 				'type' => 'Zend\Mvc\Router\Http\Literal',
 				'options' => array(
-					'route'	=> '/catalog[/:list][/:id]',
+					'route'	=> '/catalog/',
 					'constraints' => array(
 						'id'	 => '[0-9]+',
 					),

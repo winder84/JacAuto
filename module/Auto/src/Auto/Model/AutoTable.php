@@ -87,6 +87,18 @@ class AutoTable
 		return $results;
 	}
 
+	public function getProductList($id) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$select = $sql->select();
+		$select->from('product');
+		$select->where(array('ref_id' => $id));
+
+		$selectString = $sql->getSqlStringForSqlObject($select);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
 	public function deleteAuto($id)
 	{
 		$this->tableGateway->delete(array('id' => $id));

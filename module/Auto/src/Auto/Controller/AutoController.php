@@ -57,6 +57,29 @@ class AutoController extends AbstractActionController
 
 	public function listAction()
 	{
+		$id = (int) $this->params()->fromRoute('id', 0);
+		$product_list = $this->getAutoTable()->getProductList($id);
+		foreach($product_list as $key => $product) {
+			$product_all[$key]['title'] = $product->title;
+			$product_all[$key]['link'] = '/product/' . $product->id;
+			$product_all[$key]['desc'] = $product->description;
+			$product_all[$key]['image'] = $product->image;
+			$product_all[$key]['firm_id'] = $product->firm_id;
+		}
+
+		$category_list = $this->getAutoTable()->getCategoryList();
+		foreach($category_list as $key => $category) {
+			$category_all[$category->id]['title'] = $cat_list[$key]['title'] = $category->title;
+			$category_all[$category->id]['link'] = $cat_list[$key]['link'] = '/list/' . $category->id;
+			$category_all[$category->id]['desc'] = $category->description;
+			$category_all[$category->id]['image'] = $category->image;
+		}
+
+		return new ViewModel(array(
+			'category' => $category_all[$id],
+			'product_all' => $product_all,
+			'cat_list' => $cat_list,
+		));
 	}
 
 	public function getAutoTable()

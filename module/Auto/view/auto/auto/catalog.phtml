@@ -1,7 +1,7 @@
 <?php
 // module/Album/view/album/album/catalog.phtml:
 
-$title = 'ООО "Представительство TECH"';
+$title = 'ООО "Представительство TECH" - Каталог';
 $this->headTitle($title);
 ?>
 
@@ -14,7 +14,7 @@ $this->headTitle($title);
 			<?php
 			foreach ($cat_list as $key => $cl) {
 				if($key<7){
-					echo '<li><a href="' . $cl['link'] . '">' . $cl['title'] . '</a></li>';
+					echo '<li><a href="/catalog' . $cl['link'] . '">' . $cl['title'] . '</a></li>';
 				}
 			}
 			?>
@@ -26,12 +26,12 @@ $this->headTitle($title);
 	<div class="breadcrumb_auto"><a href="/">Главная</a> &larr; </div>
 
 	<div class="main_left_menu_text_cat">
-		<h3 id='category_title'>Список категорий</h3>
+		<h3 id='category_title'><?=$category_all[0]['title'] ?></h3>
 		<br>
-		<br>
-		<p id="category_desc">Выберете категорию оброрудования, которая Вас интересует.</p>
+		<p id="category_desc"><?=$category_all[0]['desc'] ?></p>
 	</div>
 
+	<!---------------------------------Галерея----------------------------->
 	<div class="hit_prod" style="margin-left: 20px;">
 		<?php
 		foreach ($category_all as $key => $ha) {
@@ -53,8 +53,28 @@ $this->headTitle($title);
 		}
 		?>
 	</div>
+	<!---------------------------------/Галерея----------------------------->
+
 	<div style="clear: both"></div>
 	<hr/>
 
+	<!---------------------------------Центр---------------------------------->
+	<?php
+		foreach($category_all as $key => $ha) {
+			echo '<ul class="category_list">';
+				echo '<li>';
+					echo "<h3>{$ha['title']}</h3>";
+					echo '<a href="/catalog' . $ha['link'] . '">Перейти к категории...</a>';
+				echo '</li>';
+				echo '<li>';
+					echo "<h4>{$ha['desc']}</h4>";
+				echo '</li>';
+				echo '<li>';
+					echo '<img src="/images/' . $ha['image'] .'">';
+				echo '</li>';
+			echo '</ul>';
+		}
+	?>
+	<!---------------------------------/Центр---------------------------------->
 
 </div>
