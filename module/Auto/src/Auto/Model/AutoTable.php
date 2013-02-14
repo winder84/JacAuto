@@ -33,17 +33,6 @@ class AutoTable
 		return $results;
 	}
 
-	public function getAuto($id)
-	{
-		$id  = (int) $id;
-		$rowset = $this->tableGateway->select(array('id' => $id));
-		$row = $rowset->current();
-		if (!$row) {
-			throw new \Exception("Could not find row $id");
-		}
-		return $row;
-	}
-
 	public function saveAuto(Auto $auto)
 	{
 		$data = array(
@@ -93,6 +82,18 @@ class AutoTable
 		$select = $sql->select();
 		$select->from('product');
 		$select->where(array('ref_id' => $id));
+
+		$selectString = $sql->getSqlStringForSqlObject($select);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
+	public function getProduct($id) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$select = $sql->select();
+		$select->from('product');
+		$select->where(array('id' => $id));
 
 		$selectString = $sql->getSqlStringForSqlObject($select);
 		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);

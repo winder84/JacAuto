@@ -119,6 +119,7 @@ body {
 
 .category_list li {
 	width: 250px;
+	max-height: 170px;
 	display: inline-block;
 	margin-left: 20px;
 	vertical-align: top;

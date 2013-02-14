@@ -1,7 +1,7 @@
 <?php
-// module/Album/view/album/album/list.phtml:
+// module/Album/view/album/album/product.phtml:
 
-$title = 'ООО "Представительство TECH" - ' . $category["title"];
+$title = 'ООО "Представительство TECH" - ' . $product->title;
 $this->headTitle($title);
 ?>
 
@@ -34,31 +34,10 @@ $this->headTitle($title);
 	<!---------------------------------Галерея----------------------------->
 	<div class="hit_prod" style="margin-left: 20px;">
 		<?php
-				echo '<img src="/images/' . $category['image'] . '">';
+		echo '<img src="/images/' . $category['image'] . '">';
 		?>
 	</div>
 	<!---------------------------------/Галерея----------------------------->
 
-	<div style="clear: both"></div>
-	<hr/>
-
-	<!---------------------------------Центр---------------------------------->
-	<?php
-	foreach($product_all as $key => $ha) {
-		echo '<ul class="category_list">';
-		echo '<li>';
-		echo "<h3>{$ha['title']}</h3>";
-		echo '<a href="/catalog' . $ha['link'] . '">Перейти на страницу оборудования...</a>';
-		echo '</li>';
-		echo '<li>';
-		echo "<h4>{$ha['desc']}</h4>";
-		echo '</li>';
-		echo '<li>';
-		echo '<img src="/images/' . $ha['image'] .'">';
-		echo '</li>';
-		echo '</ul>';
-	}
-	?>
-	<!---------------------------------/Центр---------------------------------->
 
 </div>
