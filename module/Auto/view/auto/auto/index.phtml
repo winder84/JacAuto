@@ -10,14 +10,13 @@ $this->headTitle($title);
 	<div class="left_menu">
 		<h4>КАТАЛОГ</h4>
 		<ul>
-			<li><a href="#">Стенды Развал Схождения</a></li>
-			<li><a href="#">Стапеля для кузовных работ</a></li>
-			<li><a href="#">Подъемное оборудование</a></li>
-			<li><a href="#">Компрессоры</a></li>
-			<li><a href="#">Шиномонтажное оборудование</a></li>
-			<li><a href="#">Дископравочные станки</a></li>
-			<li><a href="#">Шиноремонтные материалы</a></li>
-			<li><a href="#">Балансировочное оборудование</a></li>
+			<?php
+			foreach ($cat_list as $key => $cl) {
+				if($key<7){
+					echo '<li><a href="' . $cl['link'] . '">' . $cl['title'] . '</a></li>';
+				}
+			}
+			?>
 			<li style=" margin-top: 5px;"><a href="/catalog" style="color: #fff;"><b>Весь каталог...</b></a></li>
 		</ul>
 	</div>

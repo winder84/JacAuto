@@ -17,8 +17,14 @@ class AutoController extends AbstractActionController
 
 	public function indexAction()
 	{
+		$category_list = $this->getAutoTable()->getCategoryList();
+		foreach($category_list as $key => $category) {
+			$cat_list[$key]['title'] = $category->title;
+			$cat_list[$key]['link'] = '/list/' . $category->id;
+		}
 		return new ViewModel(array(
 			'hitauto' => $this->getAutoTable()->getHitAuto(),
+			'cat_list' => $cat_list,
 		));
 	}
 
@@ -35,6 +41,21 @@ class AutoController extends AbstractActionController
 	}
 
 	public function catalogAction()
+	{
+		$category_list = $this->getAutoTable()->getCategoryList();
+		foreach($category_list as $key => $category) {
+			$category_all[$key]['title'] = $cat_list[$key]['title'] = $category->title;
+			$category_all[$key]['link'] = $cat_list[$key]['link'] = '/list/' . $category->id;
+			$category_all[$key]['desc'] = $category->description;
+			$category_all[$key]['image'] = $category->image;
+		}
+		return new ViewModel(array(
+			'category_all' => $category_all,
+			'cat_list' => $cat_list,
+		));
+	}
+
+	public function listAction()
 	{
 	}
 

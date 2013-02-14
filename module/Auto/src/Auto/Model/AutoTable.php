@@ -75,6 +75,18 @@ class AutoTable
 		return $results;
 	}
 
+	public function getCategoryList() {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$select = $sql->select();
+		$select->from('category');
+		$select->where(array('ref_id' => 0));
+
+		$selectString = $sql->getSqlStringForSqlObject($select);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
 	public function deleteAuto($id)
 	{
 		$this->tableGateway->delete(array('id' => $id));

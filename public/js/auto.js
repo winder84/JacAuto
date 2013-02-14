@@ -18,6 +18,11 @@ function hit_right() {
 	text_shown = $('.hit_prod div[id='+hit_img_id+']');
 	img_shown.animate({opacity:1},500);
 	text_shown.animate({opacity:1},500);
+
+	if(window.location.href == ('http://' + document.domain + '/catalog')){
+	document.getElementById('category_title').innerHTML = $('#title_' + hit_img_id).html();
+	document.getElementById('category_desc').innerHTML = $('#desc_' + hit_img_id).html();
+	}
 }
 
 function hit_left() {
