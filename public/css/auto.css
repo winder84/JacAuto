@@ -546,3 +546,62 @@ body {
 	font-style: italic;
 	color: #4571ae;
 }
+
+.footer_info {
+	margin: 0 0 0 300px;
+	width: 250px;
+	color: #b7dae8;
+	height: 250px;
+	text-align: center;
+	font-family: Corbil;
+	float: left;
+}
+
+.footer_ul {
+	margin: 10px 0 0 40px;
+	list-style: none;
+	text-align: left;
+}
+
+.footer_ul li {
+	margin-bottom: 10px;
+	font-size: 12px;
+	padding-left: 7px;
+	background: url("../images/footer_arrow.png") no-repeat 0px 6px;
+}
+
+.footer_ul a {
+	color: #b7dae8;
+}
+
+.copyright {
+	text-align: left;
+	color: #b7dae8;
+	font-size: 10px;
+	margin: 70px 0 0 40px;
+}
+
+.footer_form {
+	float: left;
+	margin: 0 0 0 50px;
+	color: #b7dae8;
+}
+
+.footer_form label {
+	margin: 5px 0 15px 10px;
+	font-size: 12px;
+}
+
+.footer_form input {
+	margin: 0 0 10px 20px;
+	border-radius: 5px;
+	background-color: #b7dae8;
+}
+
+.footer_form textarea {
+	float: left;
+	margin: 10px 0 0 66px;
+	background-color: #b7dae8;
+	width: 195px;
+	resize: none;
+}
