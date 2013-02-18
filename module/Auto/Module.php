@@ -1,16 +1,8 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: winder
- * Date: 10.02.13
- * Time: 10:34
- * To change this template use File | Settings | File Templates.
- */
 namespace Auto;
 use Auto\Model\Auto;
 use Auto\Model\AutoTable;
 use Zend\Db\ResultSet\ResultSet;
-use Zend\Db\TableGateway\TableGateway;
 
 class Module
 {
