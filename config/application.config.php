@@ -4,7 +4,8 @@ return array(
     'modules' => array(
         'Application',
 		'Auto',
-		'Admin',
+		'ZfcUser',
+		'ZfcBase',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
