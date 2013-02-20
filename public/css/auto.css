@@ -95,19 +95,21 @@ body {
 
 
 .center {
-	margin: 330px 0 0 0;
+	margin: 377px 0 0 0;
 }
 
 .center_index {
 	background: url("../images/main_center_bg.png") no-repeat;
 	padding: 30px 0 0 0;
 	overflow: hidden;
+	margin: -47px 0 -10px 0;
 }
 
 .center_catalog {
 	background: url("../images/main_center_bg_cat.png") no-repeat;
 	padding: 30px 0 0 0;
 	overflow: hidden;
+	margin: -47px 0 -10px 0;
 }
 
 .category_list {
@@ -151,7 +153,6 @@ body {
 .footer {
 	background: url("../images/foot_bg.png") no-repeat;
 	height: 300px;
-	margin: -10px 0 0 0;
 }
 
 .footer_up {

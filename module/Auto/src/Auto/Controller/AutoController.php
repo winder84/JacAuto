@@ -36,6 +36,14 @@ class AutoController extends AbstractActionController
 	{
 	}
 
+	public function adminAction()
+	{
+		if (!$this->zfcUserAuthentication()->hasIdentity()) {
+			return $this->redirect()->toRoute('zfcuser/login');
+		}
+		return new ViewModel();
+	}
+
 	public function deleteAction()
 	{
 	}
