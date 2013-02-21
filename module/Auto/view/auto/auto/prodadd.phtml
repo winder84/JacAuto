@@ -4,19 +4,18 @@
 	<div style="text-align: left;">
 		<form action="" method="POST">
 			<br><br>
-			<label style="margin: 0 0 0 50px;">Категории <a style="font-size: 10px;" href="/admin/catadd">Добавить</a></label>
+			<label style="margin: 0 0 0 20px;">Категории <a href="/admin/catadd">Добавить</a></label>
 
-			<select style="margin: 0 0 0 50px;">
+			<select style="margin: 0 0 0 20px;">
 				<?php
 					foreach ($category_all as $category) {
 				?>
 				<option><?=$category['title'] ?></option>
 				<?php } ?>
 			</select>
-			<a style="font-size: 10px;" href="/admin/catadd">Изменить</a>
 			<br><br>
-			<label style="margin: 0 0 0 50px;">Фирмы <a style="font-size: 10px;" href="/admin/firmadd">Добавить</a></label>
-			<select style="margin: 0 0 0 50px;">
+			<label style="margin: 0 0 0 20px;">Фирмы <a href="/admin/firmadd">Добавить</a></label>
+			<select style="margin: 0 0 0 20px;">
 				<?php
 				foreach ($firms_all as $firm) {
 					?>
@@ -24,8 +23,8 @@
 					<?php } ?>
 			</select>
 			<br><br>
-			<label style="margin: 0 0 0 50px;">Оборудование <a style="font-size: 10px;" href="/admin/prodadd">Добавить</a></label>
-			<select style="margin: 0 0 0 50px;">
+			<label style="margin: 0 0 0 20px;">Оборудование <a href="/admin/prodadd">Добавить</a></label>
+			<select style="margin: 0 0 0 20px;">
 				<?php
 				foreach ($products_all as $product) {
 					?>

@@ -41,7 +41,52 @@ class AutoController extends AbstractActionController
 		if (!$this->zfcUserAuthentication()->hasIdentity()) {
 			return $this->redirect()->toRoute('zfcuser/login');
 		}
-		return new ViewModel();
+
+		$category_list = $this->getAutoTable()->getCategoryList();
+		foreach($category_list as $key => $category) {
+			$category_all[$key]['title'] = $category->title;
+			$category_all[$key]['id'] = $category->id;
+			$category_all[$key]['desc'] = $category->description;
+			$category_all[$key]['image'] = $category->image;
+			$category_all[$key]['ref_id'] = $category->ref_id;
+		}
+
+		$products_list = $this->getAutoTable()->getProductsAll();
+		foreach($products_list as $key => $product) {
+			$products_all[$key]['title'] = $product->title;
+			$products_all[$key]['id'] = $product->id;
+			$products_all[$key]['desc'] = $product->description;
+			$products_all[$key]['firm_id'] = $product->firm_id;
+			$products_all[$key]['ref_id'] = $product->ref_id;
+			$products_all[$key]['image'] = $product->image;
+			$products_all[$key]['is_on_main'] = $product->is_on_main;
+		}
+
+		$firms_list = $this->getAutoTable()->getFirmsAll();
+		foreach($firms_list as $key => $firms) {
+			$firms_all[$key]['title'] = $firms->title;
+			$firms_all[$key]['id'] = $firms->id;
+			$firms_all[$key]['desc'] = $firms->description;
+			$firms_all[$key]['image'] = $firms->image;
+		}
+
+		return new ViewModel(array(
+			'firms_all' => $firms_all,
+			'products_all' => $products_all,
+			'category_all' => $category_all,
+		));
+	}
+
+	public function cataddAction()
+	{
+	}
+
+	public function prodaddAction()
+	{
+	}
+
+	public function firmaddAction()
+	{
 	}
 
 	public function deleteAction()
