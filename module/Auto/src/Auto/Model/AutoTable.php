@@ -76,6 +76,18 @@ class AutoTable
 		return $results;
 	}
 
+	public function getCategory($id) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$select = $sql->select();
+		$select->from('category');
+		$select->where(array('id' => $id));
+
+		$selectString = $sql->getSqlStringForSqlObject($select);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
 	public function getProductList($id) {
 		$adapter = $this->adapter;
 		$sql = new Sql($adapter);
@@ -122,7 +134,31 @@ class AutoTable
 		return $results;
 	}
 
-	public function deleteAuto($id)
+	public function getFirm($id) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$select = $sql->select();
+		$select->from('firms');
+		$select->where(array('id' => $id));
+
+		$selectString = $sql->getSqlStringForSqlObject($select);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
+	public function setCategory($id, $aCategoryUpd) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$update = $sql->update('category');
+		$update->where(array('id' => $id));
+		$update->set($aCategoryUpd);
+
+		$selectString = $sql->getSqlStringForSqlObject($update);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
+		public function deleteAuto($id)
 	{
 		$this->tableGateway->delete(array('id' => $id));
 	}

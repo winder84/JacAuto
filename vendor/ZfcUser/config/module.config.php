@@ -21,10 +21,9 @@ return array(
 				'type' => 'segment',
 				'priority' => 1000,
 				'options' => array(
-					'route' => '/admin[/:action][/:id]',
+					'route' => '/admin[/:action]',
 					'constraints' => array(
 						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-						'id'	 => '[0-9]+',
 					),
 					'defaults' => array(
 						'controller' => 'Auto\Controller\Auto',

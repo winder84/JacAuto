@@ -28,15 +28,7 @@ class AutoController extends AbstractActionController
 		));
 	}
 
-	public function addAction()
-	{
-	}
-
-	public function editAction()
-	{
-	}
-
-	public function adminAction()
+	public function adminAction($id = null)
 	{
 		if (!$this->zfcUserAuthentication()->hasIdentity()) {
 			return $this->redirect()->toRoute('zfcuser/login');
@@ -77,16 +69,104 @@ class AutoController extends AbstractActionController
 		));
 	}
 
-	public function cataddAction()
+
+	public function addAction()
 	{
 	}
 
-	public function prodaddAction()
+	public function editAction()
 	{
-	}
+		if (!$this->zfcUserAuthentication()->hasIdentity()) {
+			return $this->redirect()->toRoute('zfcuser/login');
+		}
 
-	public function firmaddAction()
-	{
+		if(isset($_POST['cat_edit'])) {
+			$id = $_POST['cat_edit'];
+			$aCategoryUpd['title'] = $_POST['title'];
+			$aCategoryUpd['description'] = $_POST['description'];
+			$aCategoryUpd['ref_id'] = $_POST['ref_id'];
+			$aCategoryUpd['image'] = $_POST['image'];
+			if($this->getAutoTable()->setCategory($id, $aCategoryUpd)) {
+				return $this->redirect()->toRoute('/admin');
+			}
+		}
+
+		if(isset($_POST['cat_id'])) {
+			$id = $_POST['cat_id'];
+			$category = $this->getAutoTable()->getCategory($id);
+			foreach($category as $cat){
+			$aCategory['id'] = $cat->id;
+			$aCategory['title'] = $cat->title;
+			$aCategory['ref_id'] = $cat->ref_id;
+			$aCategory['description'] = $cat->description;
+			$aCategory['image'] = $cat->image;
+			}
+
+			$category_list = $this->getAutoTable()->getCategoryList();
+			foreach($category_list as $key => $category) {
+				$category_all[$key]['title'] = $category->title;
+				$category_all[$key]['id'] = $category->id;
+				$category_all[$key]['desc'] = $category->description;
+				$category_all[$key]['image'] = $category->image;
+				$category_all[$key]['ref_id'] = $category->ref_id;
+			}
+
+			return new ViewModel(array(
+				'category_all' => $category_all,
+				'aCategory' => $aCategory,
+			));
+		}
+
+		if(isset($_POST['firm_id'])) {
+			$id = $_POST['firm_id'];
+			$oFirm = $this->getAutoTable()->getFirm($id);
+			foreach($oFirm as $firm){
+				$aFirm['id'] = $firm->id;
+				$aFirm['title'] = $firm->title;
+				$aFirm['description'] = $firm->description;
+				$aFirm['image'] = $firm->image;
+			}
+
+			return new ViewModel(array(
+				'aFirm' => $aFirm,
+			));
+		}
+
+		if(isset($_POST['prod_id'])) {
+			$id = $_POST['prod_id'];
+			$oProduct = $this->getAutoTable()->getProduct($id);
+			foreach($oProduct as $product){
+				$aProduct['id'] = $product->id;
+				$aProduct['title'] = $product->title;
+				$aProduct['description'] = $product->description;
+				$aProduct['image'] = $product->image;
+				$aProduct['ref_id'] = $product->ref_id;
+				$aProduct['firm_id'] = $product->firm_id;
+				$aProduct['is_on_main'] = $product->is_on_main;
+			}
+			$category_list = $this->getAutoTable()->getCategoryList();
+			foreach($category_list as $key => $category) {
+				$category_all[$key]['title'] = $category->title;
+				$category_all[$key]['id'] = $category->id;
+				$category_all[$key]['desc'] = $category->description;
+				$category_all[$key]['image'] = $category->image;
+				$category_all[$key]['ref_id'] = $category->ref_id;
+			}
+			$firms_list = $this->getAutoTable()->getFirmsAll();
+			foreach($firms_list as $key => $firms) {
+				$firms_all[$key]['title'] = $firms->title;
+				$firms_all[$key]['id'] = $firms->id;
+				$firms_all[$key]['desc'] = $firms->description;
+				$firms_all[$key]['image'] = $firms->image;
+			}
+
+			return new ViewModel(array(
+				'aProduct' => $aProduct,
+				'category_all' => $category_all,
+				'firms_all' => $firms_all,
+			));
+		}
+
 	}
 
 	public function deleteAction()

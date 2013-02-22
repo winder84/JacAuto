@@ -606,3 +606,8 @@ body {
 	width: 195px;
 	resize: none;
 }
+
+#cke_q_text {
+	width: 800px;
+	height: 300px;
+}
