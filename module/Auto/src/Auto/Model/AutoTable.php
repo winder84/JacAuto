@@ -76,6 +76,17 @@ class AutoTable
 		return $results;
 	}
 
+	public function getCategoryAll() {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$select = $sql->select();
+		$select->from('category');
+
+		$selectString = $sql->getSqlStringForSqlObject($select);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
 	public function getCategory($id) {
 		$adapter = $this->adapter;
 		$sql = new Sql($adapter);
@@ -152,6 +163,30 @@ class AutoTable
 		$update = $sql->update('category');
 		$update->where(array('id' => $id));
 		$update->set($aCategoryUpd);
+
+		$selectString = $sql->getSqlStringForSqlObject($update);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
+	public function setFirm($id, $aFirmUpd) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$update = $sql->update('firms');
+		$update->where(array('id' => $id));
+		$update->set($aFirmUpd);
+
+		$selectString = $sql->getSqlStringForSqlObject($update);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
+	public function setProduct($id, $aProdUpd) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$update = $sql->update('product');
+		$update->where(array('id' => $id));
+		$update->set($aProdUpd);
 
 		$selectString = $sql->getSqlStringForSqlObject($update);
 		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);

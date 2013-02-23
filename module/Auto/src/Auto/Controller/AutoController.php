@@ -34,7 +34,7 @@ class AutoController extends AbstractActionController
 			return $this->redirect()->toRoute('zfcuser/login');
 		}
 
-		$category_list = $this->getAutoTable()->getCategoryList();
+		$category_list = $this->getAutoTable()->getCategoryAll();
 		foreach($category_list as $key => $category) {
 			$category_all[$key]['title'] = $category->title;
 			$category_all[$key]['id'] = $category->id;
@@ -87,7 +87,34 @@ class AutoController extends AbstractActionController
 			$aCategoryUpd['ref_id'] = $_POST['ref_id'];
 			$aCategoryUpd['image'] = $_POST['image'];
 			if($this->getAutoTable()->setCategory($id, $aCategoryUpd)) {
-				return $this->redirect()->toRoute('/admin');
+				return $this->redirect()->toUrl('/admin');
+			}
+		}
+
+		if(isset($_POST['firm_edit'])) {
+			$id = $_POST['firm_edit'];
+			$aFirmUpd['title'] = $_POST['title'];
+			$aFirmUpd['description'] = $_POST['description'];
+			$aFirmUpd['image'] = $_POST['image'];
+			if($this->getAutoTable()->setFirm($id, $aFirmUpd)) {
+				return $this->redirect()->toUrl('/admin');
+			}
+		}
+
+		if(isset($_POST['prod_edit'])) {
+			$id = $_POST['prod_edit'];
+			$aProdUpd['title'] = $_POST['title'];
+			$aProdUpd['description'] = $_POST['description'];
+			$aProdUpd['image'] = $_POST['image'];
+			$aProdUpd['ref_id'] = $_POST['ref_id'];
+			$aProdUpd['firm_id'] = $_POST['firm_id'];
+			if($_POST['is_on_main'] == 'on'){
+				$aProdUpd['is_on_main'] = 1;
+			} else {
+				$aProdUpd['is_on_main'] = 0;
+			}
+			if($this->getAutoTable()->setProduct($id, $aProdUpd)) {
+				return $this->redirect()->toUrl('/admin');
 			}
 		}
 
