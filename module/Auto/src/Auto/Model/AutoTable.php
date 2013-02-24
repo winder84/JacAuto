@@ -169,6 +169,39 @@ class AutoTable
 		return $results;
 	}
 
+	public function addCategory($aCategoryAdd) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$insert = $sql->insert('category');
+		$insert->values($aCategoryAdd);
+
+		$selectString = $sql->getSqlStringForSqlObject($insert);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
+	public function addFirm($aFirmAdd) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$insert = $sql->insert('firms');
+		$insert->values($aFirmAdd);
+
+		$selectString = $sql->getSqlStringForSqlObject($insert);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
+	public function addProduct($aProductAdd) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$insert = $sql->insert('product');
+		$insert->values($aProductAdd);
+
+		$selectString = $sql->getSqlStringForSqlObject($insert);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
 	public function setFirm($id, $aFirmUpd) {
 		$adapter = $this->adapter;
 		$sql = new Sql($adapter);

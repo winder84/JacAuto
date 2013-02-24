@@ -70,8 +70,98 @@ class AutoController extends AbstractActionController
 	}
 
 
-	public function addAction()
+	public function addcatAction()
 	{
+
+		if (!$this->zfcUserAuthentication()->hasIdentity()) {
+			return $this->redirect()->toRoute('zfcuser/login');
+		}
+
+		if(isset($_POST['title'])) {
+			$aCategoryAdd['title'] = $_POST['title'];
+			$aCategoryAdd['description'] = $_POST['description'];
+			$aCategoryAdd['ref_id'] = $_POST['ref_id'];
+			$aCategoryAdd['image'] = $_POST['image'];
+			if($this->getAutoTable()->addCategory($aCategoryAdd)) {
+				return $this->redirect()->toUrl('/admin');
+			}
+		}
+
+		$category_list = $this->getAutoTable()->getCategoryAll();
+		foreach($category_list as $key => $category) {
+			$category_all[$key]['title'] = $category->title;
+			$category_all[$key]['id'] = $category->id;
+			$category_all[$key]['desc'] = $category->description;
+			$category_all[$key]['image'] = $category->image;
+			$category_all[$key]['ref_id'] = $category->ref_id;
+		}
+
+		return new ViewModel(array(
+			'category_all' => $category_all,
+		));
+	}
+
+	public function addfirmAction()
+	{
+
+		if (!$this->zfcUserAuthentication()->hasIdentity()) {
+			return $this->redirect()->toRoute('zfcuser/login');
+		}
+
+		if(isset($_POST['title'])) {
+			$aFirmAdd['title'] = $_POST['title'];
+			$aFirmAdd['description'] = $_POST['description'];
+			$aFirmAdd['image'] = $_POST['image'];
+			if($this->getAutoTable()->addFirm($aFirmAdd)) {
+				return $this->redirect()->toUrl('/admin');
+			}
+		}
+	}
+
+	public function addproductAction()
+	{
+		if (!$this->zfcUserAuthentication()->hasIdentity()) {
+			return $this->redirect()->toRoute('zfcuser/login');
+		}
+
+		if(isset($_POST['title'])) {
+			$aProdAdd['title'] = $_POST['title'];
+			$aProdAdd['description'] = $_POST['description'];
+			$aProdAdd['ref_id'] = (int)$_POST['ref_id'];
+			$aProdAdd['firm_id'] = (int)$_POST['firm_id'];
+			if($_POST['is_on_main'] == 'on'){
+				$aProdAdd['is_on_main'] = 1;
+			} else {
+				$aProdAdd['is_on_main'] = 0;
+			}
+			$aProdAdd['image'] = $_POST['image'];
+			if($this->getAutoTable()->addProduct($aProdAdd)) {
+				return $this->redirect()->toUrl('/admin');
+			}
+		}
+
+		$category_list = $this->getAutoTable()->getCategoryAll();
+		foreach($category_list as $key => $category) {
+			$category_all[$key]['title'] = $category->title;
+			$category_all[$key]['id'] = $category->id;
+			$category_all[$key]['desc'] = $category->description;
+			$category_all[$key]['image'] = $category->image;
+			$category_all[$key]['ref_id'] = $category->ref_id;
+		}
+
+		$firms_list = $this->getAutoTable()->getFirmsAll();
+		foreach($firms_list as $key => $firms) {
+			$firms_all[$key]['title'] = $firms->title;
+			$firms_all[$key]['id'] = $firms->id;
+			$firms_all[$key]['desc'] = $firms->description;
+			$firms_all[$key]['image'] = $firms->image;
+		}
+
+		return new ViewModel(array(
+			'category_all' => $category_all,
+			'firms_all' => $firms_all,
+		));
+
 	}
 
 	public function editAction()
