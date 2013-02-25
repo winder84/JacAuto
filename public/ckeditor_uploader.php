@@ -9,6 +9,6 @@
 
 move_uploaded_file($_FILES['upload']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/images/'.$_FILES['upload']['name']);?>
 <script type="text/javascript">
-	window.parent.document.getElementById('cke_69_textInput').value='/images/<?=$_FILES['upload']['name']?>';
-	window.parent.document.getElementById('cke_info_106').click();
+	window.parent.document.getElementById('cke_109_textInput').value='/images/<?=$_FILES['upload']['name']?>';
+	window.parent.document.getElementById('cke_info_146').click();
 </script>
