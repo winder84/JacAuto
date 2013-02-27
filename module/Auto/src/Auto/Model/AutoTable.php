@@ -21,14 +21,27 @@ class AutoTable
 		$this->adapter = $dbad;
 	}
 
-	public function fetchAll()
+	public function fetchAll($table, $id)
 	{
 		$adapter = $this->adapter;
 		$sql = new Sql($adapter);
 		$select = $sql->select();
-		$select->from('product');
+		$select->from($table);
+		$select->where(array('id' => $id));
 
 		$selectString = $sql->getSqlStringForSqlObject($select);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
+	public function delItem($table, $id)
+	{
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$delete = $sql->delete($table);
+		$delete->where(array('id' => $id));
+
+		$selectString = $sql->getSqlStringForSqlObject($delete);
 		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
 		return $results;
 	}

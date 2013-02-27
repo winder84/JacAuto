@@ -32,6 +32,17 @@ return array(
 				),
 				'may_terminate' => true,
 				'child_routes' => array(
+					'del' => array(
+						'type' => 'Segment',
+						'options' => array(
+							'route' => '[/:mod][/:id]',
+							'defaults' => array(
+								'controller' => 'Auto\Controller\Auto',
+								'mod'     => 'cat',
+								'id'     => 0,
+							),
+						),
+					),
 					'login' => array(
 						'type' => 'Literal',
 						'options' => array(

@@ -370,6 +370,35 @@ class AutoController extends AbstractActionController
 		));
 	}
 
+	public function delAction()
+	{
+
+		if (!$this->zfcUserAuthentication()->hasIdentity()) {
+			return $this->redirect()->toRoute('zfcuser/login');
+		}
+
+		if(isset($_POST['module'])) {
+			if($_POST['del'] == 'Да'){
+				$this->getAutoTable()->delItem($_POST['module'], $_POST['id']);
+				return $this->redirect()->toUrl('/admin');
+			} else {
+				return $this->redirect()->toUrl('/admin');
+			}
+		}
+		$id = (int) $this->params()->fromRoute('id', 0);
+		$module = $this->params()->fromRoute('mod', '');
+		$result = $this->getAutoTable()->fetchAll($module, $id);
+		foreach($result as $res){
+			$result_item['id'] = $res->id;
+			$result_item['title'] = $res->title;
+			$result_item['module'] = $module;
+		}
+
+		return new ViewModel(array(
+			'result_item' => $result_item,
+		));
+	}
+
 	public function getAutoTable()
 	{
 		if (!$this->autoTable) {
