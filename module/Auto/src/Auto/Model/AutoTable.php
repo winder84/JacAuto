@@ -64,12 +64,12 @@ class AutoTable
 		return $results;
 	}
 
-	public function getCategoryList() {
+	public function getCategoryList($ref_id = 0) {
 		$adapter = $this->adapter;
 		$sql = new Sql($adapter);
 		$select = $sql->select();
 		$select->from('category');
-		$select->where(array('ref_id' => 0));
+		$select->where(array('ref_id' => $ref_id));
 
 		$selectString = $sql->getSqlStringForSqlObject($select);
 		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
@@ -157,18 +157,6 @@ class AutoTable
 		return $results;
 	}
 
-	public function setCategory($id, $aCategoryUpd) {
-		$adapter = $this->adapter;
-		$sql = new Sql($adapter);
-		$update = $sql->update('category');
-		$update->where(array('id' => $id));
-		$update->set($aCategoryUpd);
-
-		$selectString = $sql->getSqlStringForSqlObject($update);
-		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
-		return $results;
-	}
-
 	public function addCategory($aCategoryAdd) {
 		$adapter = $this->adapter;
 		$sql = new Sql($adapter);
@@ -198,6 +186,18 @@ class AutoTable
 		$insert->values($aProductAdd);
 
 		$selectString = $sql->getSqlStringForSqlObject($insert);
+		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
+		return $results;
+	}
+
+	public function setCategory($id, $aCategoryUpd) {
+		$adapter = $this->adapter;
+		$sql = new Sql($adapter);
+		$update = $sql->update('category');
+		$update->where(array('id' => $id));
+		$update->set($aCategoryUpd);
+
+		$selectString = $sql->getSqlStringForSqlObject($update);
 		$results = $adapter->query($selectString, $adapter::QUERY_MODE_EXECUTE);
 		return $results;
 	}

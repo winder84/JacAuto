@@ -308,6 +308,19 @@ class AutoController extends AbstractActionController
 	public function listAction()
 	{
 		$id = (int) $this->params()->fromRoute('id', 0);
+		$subcategory_list = $this->getAutoTable()->getCategoryList($id);
+
+		foreach($subcategory_list as $subcategory) {
+			if(isset($subcategory->title)) {
+				$subcategory_all[$subcategory->id]['title'] = $subcategory->title;
+				$subcategory_all[$subcategory->id]['link'] = '/list/' . $subcategory->id;
+				$subcategory_all[$subcategory->id]['desc'] = $this->crop_str($subcategory->description, 800);
+				$subcategory_all[$subcategory->id]['image'] = $subcategory->image;
+			} else {
+				$subcategory_all = null;
+			}
+		}
+
 		$product_list = $this->getAutoTable()->getProductList($id);
 		foreach($product_list as $key => $product) {
 			$product_all[$key]['title'] = $product->title;
@@ -328,6 +341,7 @@ class AutoController extends AbstractActionController
 		return new ViewModel(array(
 			'category' => $category_all[$id],
 			'product_all' => $product_all,
+			'subcategory_all' => $subcategory_all,
 			'cat_list' => $cat_list,
 		));
 	}
@@ -339,6 +353,7 @@ class AutoController extends AbstractActionController
 			$prod_itog = $prod;
 		}
 		$id = (int)$prod_itog->ref_id;
+		$prod_itog->description = $this->crop_str($prod_itog->description, 800);
 
 		$category_list = $this->getAutoTable()->getCategoryList();
 		foreach($category_list as $key => $category) {

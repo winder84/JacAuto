@@ -80,9 +80,6 @@ body {
 	margin: 0;
 }
 
-.menu_block a {
-	padding-top: 18px;
-}
 .current {
 	color: #333 !important;
 	background: url("../images/menu_current.jpg") no-repeat;
@@ -610,26 +607,5 @@ body {
 }
 
 #cke_q_text {
-	width: 1000px;
-}
-
-.product {
-	padding: 0 50px 0 50px;
-	margin-bottom: -20px;
-	background: #fff;
-}
-
-.product img {
-	float: left;
-	margin-bottom: 100px;
-	width: 400px;
-}
-
-.product h1 {
-	font-size: 24px;
-	padding: 30px 0 0 0;
-}
-
-.product_desc img {
-	margin: 20px 30px 10px 10px;
+	width: 800px;
 }

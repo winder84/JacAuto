@@ -44,20 +44,41 @@ $this->headTitle($title);
 
 	<!---------------------------------Центр---------------------------------->
 	<?php
-	foreach($product_all as $key => $ha) {
-		echo '<ul class="category_list">';
-		echo '<li>';
-		echo "<h3>{$ha['title']}</h3>";
-		echo '<a href="/catalog' . $ha['link'] . '">Перейти на страницу оборудования...</a>';
-		echo '</li>';
-		echo '<li>';
-		echo "<h4>{$ha['desc']}</h4>";
-		echo '</li>';
-		echo '<li>';
-		echo '<img src="/images/' . $ha['image'] .'">';
-		echo '</li>';
-		echo '</ul>';
-	}
+		if(isset($subcategory_all)) {
+			foreach($subcategory_all as $key => $ha) {
+				echo '<ul class="category_list">';
+				echo '<li>';
+				echo "<h3>{$ha['title']}</h3>";
+				echo '<a href="/catalog' . $ha['link'] . '">Перейти к категории...</a>';
+				echo '</li>';
+				echo '<li>';
+				echo "<h4>{$ha['desc']}</h4>";
+				echo '</li>';
+				echo '<li>';
+				if ($ha['image'] != '') {
+					echo '<img src="/images/' . $ha['image'] .'">';
+				} else {
+					echo '<img style="background: #ccc;" src="/images/menu_logo_TK.png">';
+				}
+				echo '</li>';
+				echo '</ul>';
+			}
+		} else {
+			foreach($product_all as $key => $ha) {
+				echo '<ul class="category_list">';
+				echo '<li>';
+				echo "<h3>{$ha['title']}</h3>";
+				echo '<a href="/catalog' . $ha['link'] . '">Перейти на страницу оборудования...</a>';
+				echo '</li>';
+				echo '<li>';
+				echo "<h4>{$ha['desc']}</h4>";
+				echo '</li>';
+				echo '<li>';
+				echo '<img src="/images/' . $ha['image'] .'">';
+				echo '</li>';
+				echo '</ul>';
+			}
+		}
 	?>
 	<!---------------------------------/Центр---------------------------------->
 

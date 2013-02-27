@@ -1,7 +1,7 @@
 <div style="text-align: right; background: #fff; margin: 0 0 -47px 0">
 	<a href="<?php echo $this->url('zfcuser/logout') ?>">[Выйти]</a><br>
 
-	<div style="text-align: left; padding-bottom: 50px; margin: 0 0 0 50px;">
+	<div style="text-align: left; padding-bottom: 50px; margin: 0 0 0 150px;">
 		<!--		Категория-->
 		<?php if(isset($aCategory)) {?>
 			<form action="" method="POST">
@@ -105,6 +105,18 @@
 
 	</div>
 </div>
+
+<script>
+	$(document).ready(function()
+	{
+		var editor = CKEDITOR.replace('q_text',
+				{
+					// если нужно загружать файлы
+					filebrowserUploadUrl: '/ckeditor_uploader.php',
+					toolbar: 'Full'
+				});
+	});
+</script>
 
 <script>
 	function chengeImg() {
