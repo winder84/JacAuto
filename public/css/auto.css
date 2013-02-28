@@ -163,7 +163,7 @@ body {
 }
 
 .slider_text h2 {
-	color: #fff;
+	color: #0e397a;
 	background: url("../images/slider_text_podl.png") no-repeat;
 	font-family: Gautami;
 	font-size: 20px;
@@ -184,7 +184,7 @@ body {
 	background: url("../images/slider_arrow_right.png") no-repeat;
 	height: 70px;
 	width: 42px;
-	margin: 110px 0 0 260px;
+	margin: 110px 0 0 280px;
 	cursor: pointer;
 }
 

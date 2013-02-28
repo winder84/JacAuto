@@ -1,5 +1,7 @@
 var hit_img_id = 0;
 var sl_id = 1;
+var hit_id;
+var top_slider_id;
 function hit_right() {
 	img_all = $('.hit_prod img');
 
@@ -53,8 +55,8 @@ function interval () {
 }
 
 $(document).ready(function() {
-	var hit_id = setInterval(interval, 5000);
-	var top_slider_id = setInterval(top_slider_right, 7000);
+	hit_id = setInterval(interval, 5000);
+	top_slider_id = setInterval(top_slider_right, 7000);
 
 	if(window.location.href == ('http://' + document.domain + '/')){
 		$('.menu_block a[href="/"]').attr({class:'current'});
