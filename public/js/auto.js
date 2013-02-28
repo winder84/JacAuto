@@ -52,6 +52,7 @@ function hit_left() {
 function interval () {
 	hit_right();
 	clearInterval(hit_id);
+	hit_id = setInterval(interval, 5000);
 }
 
 $(document).ready(function() {
@@ -76,6 +77,7 @@ function top_slider_right () {
 	$('#sl_i_' + sl_id).animate({"margin-left":"+=200", opacity:1},500);
 	$('#sl_txt_' + sl_id).animate({opacity:1},500);
 	clearInterval(top_slider_id);
+	top_slider_id = setInterval(top_slider_right, 7000);
 };
 
 function top_slider_left () {
@@ -88,4 +90,5 @@ function top_slider_left () {
 	$('#sl_i_' + sl_id).animate({"margin-left":"+=200", opacity:1},500);
 	$('#sl_txt_' + sl_id).animate({opacity:1},500);
 	clearInterval(top_slider_id);
+	top_slider_id = setInterval(top_slider_right, 7000);
 };

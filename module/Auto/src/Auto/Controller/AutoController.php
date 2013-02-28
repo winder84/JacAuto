@@ -353,7 +353,6 @@ class AutoController extends AbstractActionController
 			$prod_itog = $prod;
 		}
 		$id = (int)$prod_itog->ref_id;
-		$prod_itog->description = $this->crop_str($prod_itog->description, 800);
 
 		$category_list = $this->getAutoTable()->getCategoryList();
 		foreach($category_list as $key => $category) {
